@@ -1,0 +1,45 @@
+Please fill in answers to the questions below:
+
+
+1. What's your name?
+
+
+2. Which section of the class are you in (Monday or Tuesday; Grad or Undergrad)?
+
+
+3. Which VPS & domain providers did you choose?
+
+
+4. What domain name did you register?
+
+
+5. What's the URL of your Github repository for this assignment?
+
+
+6. Which parts of this assignment did you have trouble with, if any?
+
+
+
+And here's a list of tasks for grading comments. Just leave this here:
+ - Task 1
+ - Task 2
+ - Task 3
+ - Task 4
+ - Task 5
+ - Task 6
+ - Task 7
+ - Task 8
+
+
+1. Name:  Prateek Pisat
+
+2. section: Tuesday, I am a graduate student
+
+3. VPS: Vultr.com
+    Doman Provided: GoDaddy.com
+
+4. Domain Name: prateekpisat.com
+
+5. GitHub URL: https://github.com/PrateekPisat/CS5610-Web-Devlopment
+
+6. I had problems with deploying the second website(hw01.prateekpisat.com), since had not pointed my sub-domain(hw01) to the VPS's ip.
