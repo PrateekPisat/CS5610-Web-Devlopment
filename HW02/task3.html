@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    width: 100px;
+}
+   
+article {
+    margin-left: 33%;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}
+</style>
+</head>
+<body>
+
+<div>
+
+<header>
+   <h1>HW03 Task Three</h1>
+</header>
+  
+<nav>
+  <ul>
+    <li><a href="#" onclick="putLorem()">London</a></li>
+    <li><a href="#" onclick="putBeers()">Paris</a></li>
+    <li><a href="#" onclick="lastThing()">Tokyo</a></li>
+  </ul>
+</nav>
+
+<article id="ar1">
+  
+  <p id="p1">Lorem Ipsum</p>
+</article>
+
+</div>
+<script>
+	function putLorem()
+    {
+    	document.getElementById("p1").innerHTML="<h1>Lorem ipsum</h1><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus dapibus justo nec placerat. Sed sed venenatis leo. Vestibulum ut varius est. In eu sagittis enim. Nulla facilisi. Vivamus non gravida leo, vel gravida neque. Nullam non ipsum magna. Aliquam in iaculis eros, vitae facilisis justo.<br><br>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Sed congue quam nec euismod congue. In lacinia, velit in pellentesque porttitor, ligula risus egestas purus, et venenatis magna nulla ut diam. Nam nulla nisi, sodales a aliquet vel, viverra sed neque. Sed tempus nulla at rhoncus imperdiet. Sed volutpat vitae lorem ut mollis. Donec sed libero nec tellus ultricies laoreet. Quisque nec faucibus nunc, eget vestibulum sem. Sed sit amet elit eu nibh auctor pellentesque at et lectus. Etiam id risus odio. Sed porttitor purus sit amet lorem dictum scelerisque. Aenean vitae ligula nec ipsum sollicitudin commodo.<br><br>Praesent eget lectus felis. Quisque vitae hendrerit tortor. Etiam bibendum massa sit amet ligula scelerisque pulvinar. Sed vel eros enim. Fusce a leo sollicitudin, porta neque vitae, efficitur metus. Nunc vel metus purus. Vestibulum facilisis, augue et venenatis egestas, lorem tortor tristique ipsum, a porttitor eros nisl ac elit. Phasellus scelerisque metus vel sem pharetra interdum. Mauris consequat tortor posuere ultricies auctor. Maecenas luctus ac ligula ac maximus. Vestibulum maximus, dui in viverra ultrices, ex libero pharetra urna, sed imperdiet justo felis eu leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris cursus nisl sed mauris ornare elementum. Vestibulum tincidunt dolor sapien, a feugiat diam imperdiet quis. Quisque auctor semper sapien, at pulvinar enim interdum quis.<br><br>Nam vel tortor suscipit, iaculis est ut, porttitor sem. Proin imperdiet neque vitae tortor porta, ac pretium diam auctor. In quis purus magna. Vivamus sagittis, nisi fermentum ornare pellentesque, tellus elit varius arcu, vel iaculis nisl orci ut lacus. Fusce ipsum ante, semper quis eros sed, faucibus ultricies urna. In eleifend libero sed elit ultrices, fermentum iaculis purus sagittis. Quisque accumsan velit ligula, sed scelerisque tortor tristique a. Phasellus vehicula tortor quis enim tincidunt tincidunt eu sed nulla. Etiam euismod mi at sem laoreet auctor. Pellentesque nisl massa, gravida quis convallis sit amet, ullamcorper nec odio.";
+    }
+ 
+    function putBeers()
+    {
+    	document.getElementById("p1").innerHTML="<h1>99 bottles of beer</h1><br>99 bottles of beer on the wall, 99 bottles of beer.<br>Take one down and pass it around, 98 bottles of beer on the wall.<br><br>98 bottles of beer on the wall, 98 bottles of beer.<br>Take one down and pass it around, 97 bottles of beer on the wall.<br><br>97 bottles of beer on the wall, 97 bottles of beer.<br>Take one down and pass it around, 96 bottles of beer on the wall.<br><br>96 bottles of beer on the wall, 96 bottles of beer.<br>Take one down and pass it around, 95 bottles of beer on the wall.";
+    }
+    
+    function lastThing()
+    {
+    	document.getElementById("p1").innerHTML="this is the third thing";
+    }
+</script>
+</body>
+</html>

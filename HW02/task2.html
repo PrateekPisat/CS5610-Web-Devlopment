@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>JS</title>
+</head>
+<body>
+<article>
+	<header>
+		<form>
+			<h1><p id="tx1"></p></h1><br>
+		</form>
+	</header>
+</article>
+<form>
+	<input type="button" name="alert" onclick="popup()" value="Alert" target="self"><br>
+	<input type="button" name="multiply" onclick="inc()" value="Incrememnt" target="self"><br>
+	<input type="button" name="multiply" onclick="dec()" value="Decrement" target="self"><br>
+	<input type="button" name="Append" onclick="appendToPara()" value="Append" target="self"><br>
+	<p id="p2">
+	</p>
+</form>
+<script type = "text/javascript">
+<!--
+	
+	
+	//all types of variables
+	var x = 10;
+	var y = "ABC";
+	var z = true;
+	var a = null;
+	
+	
+	
+	//functions
+	function popup()
+	{
+		alert(x);
+	}
+	
+	function inc()
+	{
+		x=x+1;
+		document.getElementById("tx1").innerHTML = x.toString();
+	}
+
+	function dec()
+	{
+		x=x-1;
+		document.getElementById("tx1").innerHTML = x.toString();
+	}
+	
+	function appendToPara()
+	{
+		document.getElementById("p2").innerHTML = document.getElementById("p2").innerHTML+x.toString();
+	}
+	
+	document.getElementById("tx1").innerHTML = x.toString();
+	
+//-->
+</script>
+
+</body>
+</html>
