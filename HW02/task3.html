@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>	
+	Task 3
+</title>
 <style>
 .flex-container {
     display: -webkit-flex;
@@ -29,24 +32,18 @@ header, footer {
 
 nav {
     float: left;
-    width: 100px;
+    width: 33.33%;
 }
    
 article {
-    margin-left: 33%;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
+    width: 66.67%
+    float: right;
+    overflow: auto;
 }
 
-@media all and (min-width: 768px) {
-    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
-    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
-    footer {-webkit-order:3;order:3;}
-}
 </style>
 </head>
-<body>
+<body onload="putLorem()">
 
 <div>
 
@@ -56,9 +53,10 @@ article {
   
 <nav>
   <ul>
-    <li><a href="#" onclick="putLorem()">London</a></li>
-    <li><a href="#" onclick="putBeers()">Paris</a></li>
-    <li><a href="#" onclick="lastThing()">Tokyo</a></li>
+    <li><a href="#" onclick="putLorem()">Lorem Ipsum</a></li>
+    <li><a href="#" onclick="putBeers()">99 Bottles</a></li>
+    <li><a href="#" onclick="lastThing()">Last Thing</a></li>
+    <li><a href="http://hw02.prateekpisat.com">Back</a></li>
   </ul>
 </nav>
 
@@ -67,6 +65,9 @@ article {
   <p id="p1">Lorem Ipsum</p>
 </article>
 
+<footer>
+	Prateek Pisat
+</footer>
 </div>
 <script>
 	function putLorem()
@@ -84,5 +85,6 @@ article {
     	document.getElementById("p1").innerHTML="this is the third thing";
     }
 </script>
+
 </body>
 </html>
