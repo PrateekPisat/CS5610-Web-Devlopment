@@ -12,8 +12,8 @@
 	<input type="button" name="multiply" onclick="inc()" value="Incrememnt"><br>
 	<input type="button" name="multiply" onclick="dec()" value="Decrement" ><br>
 	<input type="button" name="Append" onclick="appendToPara()" value="Append"><br>
-	<p id="p2">
-	</p>
+	<div id="d1">
+	</div>
 </form>
 <script>
 	
@@ -45,7 +45,7 @@
 	
 	function appendToPara()
 	{
-		document.getElementById("p2").innerHTML = x.toString();
+		document.getElementById("d1").innerHTML = document.getElementById("d1").innerHTML+ "<p>" + x.toString() + "</p>";
 	}
 	
 	document.getElementById("tx1").innerHTML = x.toString();
