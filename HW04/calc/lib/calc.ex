@@ -1,5 +1,6 @@
 defmodule Calc do
 	#Main function
+	#Note: This function cannot be tested since, it doesn't return anything.
 	#Effect: Repeatedly prints a prompt, accepts an input and returns the 
 	#		 evaluated statement
 	#Example: > 1 + 2
