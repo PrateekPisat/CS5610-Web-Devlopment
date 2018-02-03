@@ -7,7 +7,7 @@ defmodule Calc do
 	#		  3
 	#		  >
 	def main() do
-		input = IO.gets("> ")
+		input = IO.gets("> ")|>String.trim()
 		result =  eval(input)
 		Enum.each(result, fn(n) -> IO.puts n end)
 		main()
@@ -22,8 +22,8 @@ defmodule Calc do
 	def eval(input) do
 		ops = []
 		vals = []
-		ip = String.split(input)   
-		
+		ip = String.split(input, " ")   
+		IO.inspect(ip)
 		{ops, vals} = to_postfix(ip, ops, vals)
 		result = get_result(ops, vals)
 		result
@@ -42,13 +42,23 @@ defmodule Calc do
 			{ops, vals}
 		else
 			[h|t] = ip
-			cond do
-				h == "(" -> ops = push(ops, h)
-				h == ")" -> {ops, vals} = dealing_with_paranthesis(ops, vals, h)	
-				h == "*" || h == "-" || h == "+" || h == "/" -> {ops, vals} = 
-					dealing_with_precedence(ops, vals, h)
-				true -> vals = push(vals, String.to_integer(h))
-			end		
+			cond  do
+				String.starts_with?(h, "(") and String.length(h) > 1 -> 
+					t = [String.slice(h, 1, String.length(h))] ++ t
+					t = ["("] ++ t
+					to_postfix(t, ops, vals)
+				String.contains?(h, ")") and String.length(h) > 1 ->
+					t = t ++ [String.trim_trailing(h, ")")] 
+					t = t ++ [")"]
+					to_postfix(t, ops, vals)
+				true -> cond do
+					h == "(" -> ops = push(ops, h)
+					h == ")" -> {ops, vals} = dealing_with_paranthesis(ops, vals, h)	
+					h == "*" || h == "-" || h == "+" || h == "/" -> {ops, vals} = 
+						dealing_with_precedence(ops, vals, h)
+					true -> vals = push(vals, String.to_integer(h))
+				end		
+			end
 			to_postfix(t, ops, vals)
 		end
 	end
@@ -85,13 +95,7 @@ defmodule Calc do
 		else
 			{operator, ops} = pop(ops)
 			{operand1, vals} = pop(vals)
-			if is_number(operand1) == false do
-				operand1 = String.to_integer(operand1)
-			end
 			{operand2, vals} = pop(vals)
-			if is_number(operand2) == false do
-				operand2 = String.to_integer(operand2)
-			end
 			
 			case operator do
 				"+" -> vals = vals ++ [operand2 + operand1]
@@ -132,14 +136,7 @@ defmodule Calc do
 		else
 			{operator, ops} = pop(ops)
 			{operand1, vals} = pop(vals)
-			if is_number(operand1) == false do
-				operand1 = String.to_integer(operand1)
-			end
-			IO.puts operator
 			{operand2, vals} = pop(vals)
-			if is_number(operand2) == false do
-				operand2 = String.to_integer(operand2)
-			end
 			case operator do
 				"+" -> vals = vals ++ [operand2 + operand1]
 				"-" -> vals = vals ++ [operand2 - operand1]
@@ -162,13 +159,7 @@ defmodule Calc do
 		else
 			{operator, ops} = pop(ops)
 			{operand1, vals} = pop(vals)
-			if is_number(operand1) == false do
-				operand1 = String.to_integer(operand1)
-			end
 			{operand2, vals} = pop(vals)
-			if is_number(operand2) == false do
-				operand2 = String.to_integer(operand2)
-			end
 			case operator do
 				"+" -> vals = vals ++ [operand2 + operand1]
 				"-" -> vals = vals ++ [operand2 - operand1]
@@ -179,3 +170,4 @@ defmodule Calc do
 		end
 	end
 end
+

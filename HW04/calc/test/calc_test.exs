@@ -29,7 +29,7 @@ defmodule CalcTest do
 
   test "Postfix ( ) Test" do
   	assert Calc.to_postfix(String.split("( 2 / 1 )"), [], []) == {[], [2]}
-  endS
+  end
 
   test "GetResult + Test" do
   	assert Calc.get_result(["+"], [1, 2]) == [3]
@@ -86,5 +86,4 @@ defmodule CalcTest do
   test "eval" do
   	assert Calc.eval("1 + 2") == [3]
   end
-
 end
