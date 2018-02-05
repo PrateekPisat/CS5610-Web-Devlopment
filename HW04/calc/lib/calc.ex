@@ -22,8 +22,7 @@ defmodule Calc do
 	def eval(input) do
 		ops = []
 		vals = []
-		ip = String.split(input, " ")   
-		IO.inspect(ip)
+		ip = String.split(input, " ")
 		{ops, vals} = to_postfix(ip, ops, vals)
 		result = get_result(ops, vals)
 		result
@@ -48,8 +47,7 @@ defmodule Calc do
 					t = ["("] ++ t
 					to_postfix(t, ops, vals)
 				String.contains?(h, ")") and String.length(h) > 1 ->
-					t = t ++ [String.trim_trailing(h, ")")] 
-					t = t ++ [")"]
+					t = [String.trim_trailing(h, ")")] ++ [")"] ++ t
 					to_postfix(t, ops, vals)
 				true -> cond do
 					h == "(" -> ops = push(ops, h)
@@ -132,7 +130,7 @@ defmodule Calc do
 	def dealing_with_precedence(ops, vals, data) do
 		if length(ops) == 0 || 
 		   get_prcedence(List.last(ops)) < get_prcedence(data) do
-			{push(ops, to_string(data)), vals}
+			{push(ops, data), vals}
 		else
 			{operator, ops} = pop(ops)
 			{operand1, vals} = pop(vals)
@@ -142,6 +140,7 @@ defmodule Calc do
 				"-" -> vals = vals ++ [operand2 - operand1]
 				"*" -> vals = vals ++ [operand2 * operand1]
 				"/" -> vals = vals ++ [div(operand2,operand1)]
+				"(" -> nil
 			end
 			dealing_with_precedence(ops, vals, to_string(data))
 		end
